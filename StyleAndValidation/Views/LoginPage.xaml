@@ -30,11 +30,14 @@
             HorizontalOptions="End"
             Text="הצג/הסתר סיסמה"
             TextColor="Black"
-            ZIndex="2" />
+            ZIndex="2"
+            Style="{StaticResource Buttons}"/>
         <Button
+            x:Name="loginButton"
             Command="{Binding LoginCommand}"
             HorizontalOptions="FillAndExpand"
-            Text="התחבר" />
+            Text="התחבר" 
+            />
         <HorizontalStackLayout Spacing="200">
             <Button
                 Background="Transparent"
@@ -43,14 +46,16 @@
                 FontSize="15"
                 Text="הרשמה"
                 TextColor="black"
-                VerticalOptions="Center" />
+                VerticalOptions="Center" 
+                Style="{StaticResource Buttons}"/>
             <Button
                 Background="Transparent"
                 Command="{Binding ForgotPasswordCommand}"
                 HorizontalOptions="End"
                 Text="שכחתי סיסמה"
                 TextColor="Black"
-                VerticalOptions="End" />
+                VerticalOptions="End" 
+                Style="{StaticResource Buttons}"/>
         </HorizontalStackLayout>
     </VerticalStackLayout>
 </ContentPage>

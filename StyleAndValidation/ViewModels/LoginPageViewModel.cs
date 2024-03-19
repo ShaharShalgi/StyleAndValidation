@@ -34,6 +34,7 @@ namespace StyleAndValidation.ViewModels
                     //בדיקה האם הכפתור צריך להיות מנוטרל או פעיל
                     var cmd = LoginCommand as Command;
                     cmd.ChangeCanExecute();
+                    ((Command)LoginCommand).ChangeCanExecute();
                 }
             }
         }
@@ -54,7 +55,15 @@ namespace StyleAndValidation.ViewModels
         {
             appServices = service;
 
-            LoginCommand = new Command(async() => {bool success= await appServices.Login(Username, Password);  if (success) await AppShell.Current.GoToAsync("///MyPage"); });
+            LoginCommand = new Command(async() => {bool success= await appServices.Login(Username, Password);
+                
+                if (success) await AppShell.Current.GoToAsync("///MyPage"); 
+            if(AppShell.Current.Navigation.ModalStack.Count > 0)
+                {
+                    await AppShell.Current.Navigation.PopModalAsync();
+                }
+                if (success) await AppShell.Current.GoToAsync("///MyPage");
+            },()=>!string.IsNullOrEmpty(Password)&&!string.IsNullOrEmpty(Username));
             RegisterCommand = new Command(async () => { await AppShell.Current.GoToAsync("Register"); });
             ForgotPasswordCommand = new Command( () => { });
             ShowPasswordCommand = new Command(() => ShowPassword = !ShowPassword);

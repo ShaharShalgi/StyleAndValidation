@@ -1,8 +1,9 @@
-﻿<?xml version = "1.0" encoding = "UTF-8" ?>
-<Application xmlns="http://schemas.microsoft.com/dotnet/2021/maui"
-             xmlns:x="http://schemas.microsoft.com/winfx/2009/xaml"
-             xmlns:local="clr-namespace:StyleAndValidation"
-             x:Class="StyleAndValidation.App">
+﻿<?xml version="1.0" encoding="UTF-8" ?>
+<Application
+    x:Class="StyleAndValidation.App"
+    xmlns="http://schemas.microsoft.com/dotnet/2021/maui"
+    xmlns:x="http://schemas.microsoft.com/winfx/2009/xaml"
+    xmlns:local="clr-namespace:StyleAndValidation">
     <Application.Resources>
         <ResourceDictionary>
             <ResourceDictionary.MergedDictionaries>
@@ -10,9 +11,12 @@
                 <ResourceDictionary Source="Resources/Styles/Styles.xaml" />
             </ResourceDictionary.MergedDictionaries>
             <Style x:Key="errorMsgStyleLabel" TargetType="Label">
-                <Setter Property="TextColor" Value="Red"/>
-                <Setter  Property="HorizontalOptions" Value="Center"/>
-                <Setter Property="FontSize" Value="15"/>
+                <Setter Property="TextColor" Value="Red" />
+                <Setter Property="HorizontalOptions" Value="Center" />
+                <Setter Property="FontSize" Value="15" />
+            </Style>
+            <Style x:Key="Buttons" TargetType="Button">
+                <Setter Property="BackgroundColor" Value="Aquamarine" />
             </Style>
         </ResourceDictionary>
     </Application.Resources>
